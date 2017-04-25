@@ -1,9 +1,14 @@
-# api documentation for  [rss-watcher (v1.3.0)](https://github.com/nikezono/node-rss-watcher)  [![npm package](https://img.shields.io/npm/v/npmdoc-rss-watcher.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rss-watcher) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rss-watcher.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rss-watcher)
+# npmdoc-rss-watcher
+
+#### basic api documentation for  [rss-watcher (v1.3.0)](https://github.com/nikezono/node-rss-watcher)  [![npm package](https://img.shields.io/npm/v/npmdoc-rss-watcher.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-rss-watcher) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-rss-watcher.svg)](https://travis-ci.org/npmdoc/node-npmdoc-rss-watcher)
+
 #### RSS reader/watcher
 
-[![NPM](https://nodei.co/npm/rss-watcher.png?downloads=true)](https://www.npmjs.com/package/rss-watcher)
+[![NPM](https://nodei.co/npm/rss-watcher.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/rss-watcher)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-rss-watcher/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-rss-watcher_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-rss-watcher/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-rss-watcher/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-rss-watcher/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-rss-watcher/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-rss-watcher/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-rss-watcher/build/screenCapture.npmPackageListing.svg)
 
@@ -71,13 +76,11 @@
     "main": "lib/watcher.js",
     "maintainers": [
         {
-            "name": "nikezono",
-            "email": "nikezono@gmail.com"
+            "name": "nikezono"
         }
     ],
     "name": "rss-watcher",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/nikezono/node-rss-watcher.git"
@@ -87,76 +90,6 @@
     },
     "version": "1.3.0"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module rss-watcher](#apidoc.module.rss-watcher)
-1.  boolean <span class="apidocSignatureSpan">rss-watcher.</span>usingDomains
-1.  [function <span class="apidocSignatureSpan">rss-watcher.</span>EventEmitter ()](#apidoc.element.rss-watcher.EventEmitter)
-1.  [function <span class="apidocSignatureSpan">rss-watcher.</span>init ()](#apidoc.element.rss-watcher.init)
-1.  [function <span class="apidocSignatureSpan">rss-watcher.</span>listenerCount (emitter, type)](#apidoc.element.rss-watcher.listenerCount)
-1.  number <span class="apidocSignatureSpan">rss-watcher.</span>defaultMaxListeners
-1.  object <span class="apidocSignatureSpan">rss-watcher.</span>__super__
-
-
-
-# <a name="apidoc.module.rss-watcher"></a>[module rss-watcher](#apidoc.module.rss-watcher)
-
-#### <a name="apidoc.element.rss-watcher.EventEmitter"></a>[function <span class="apidocSignatureSpan">rss-watcher.</span>EventEmitter ()](#apidoc.element.rss-watcher.EventEmitter)
-- description and source-code
-```javascript
-function EventEmitter() {
-  EventEmitter.init.call(this);
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.rss-watcher.init"></a>[function <span class="apidocSignatureSpan">rss-watcher.</span>init ()](#apidoc.element.rss-watcher.init)
-- description and source-code
-```javascript
-init = function () {
-  this.domain = null;
-  if (EventEmitter.usingDomains) {
-    // if there is an active domain, then attach to it.
-    domain = domain || require('domain');
-    if (domain.active && !(this instanceof domain.Domain)) {
-      this.domain = domain.active;
-    }
-  }
-
-  if (!this._events || this._events === Object.getPrototypeOf(this)._events) {
-    this._events = new EventHandlers();
-    this._eventsCount = 0;
-  }
-
-  this._maxListeners = this._maxListeners || undefined;
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.rss-watcher.listenerCount"></a>[function <span class="apidocSignatureSpan">rss-watcher.</span>listenerCount (emitter, type)](#apidoc.element.rss-watcher.listenerCount)
-- description and source-code
-```javascript
-listenerCount = function (emitter, type) {
-  if (typeof emitter.listenerCount === 'function') {
-    return emitter.listenerCount(type);
-  } else {
-    return listenerCount.call(emitter, type);
-  }
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 
