@@ -62,6 +62,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.rss-watcher.rss-watcher">
+            function <span class="apidocSignatureSpan"></span>rss-watcher
+            <span class="apidocSignatureSpan">(feedUrl)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.rss-watcher.EventEmitter">
             function <span class="apidocSignatureSpan">rss-watcher.</span>EventEmitter
             <span class="apidocSignatureSpan">()</span>
@@ -106,6 +115,59 @@
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.rss-watcher" id="apidoc.module.rss-watcher">module rss-watcher</a></h1>
 
+
+
+
+    <h2>
+        <a href="#apidoc.element.rss-watcher.rss-watcher" id="apidoc.element.rss-watcher.rss-watcher">
+        function <span class="apidocSignatureSpan"></span>rss-watcher
+        <span class="apidocSignatureSpan">(feedUrl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Watcher(feedUrl) {
+  this.stop = __bind(this.stop, this);
+  this.run = __bind(this.run, this);
+  if (!feedUrl || feedUrl === void 0) {
+    throw new Error("arguments error.");
+  }
+  this.feedUrl = feedUrl;
+  this.interval = null;
+  this.lastPubDate = null;
+  this.lastPubTitle = null;
+  this.timer = null;
+  this.watch = (function(_this) {
+    return function() {
+      var fetch;
+      fetch = function() {
+        return request(_this.feedUrl, function(err, articles) {
+          var article, _i, _len, _results;
+          if (err) {
+            return _this.emit('error', err);
+          }
+          _results = [];
+          for (_i = 0, _len = articles.length; _i &lt; _len; _i++) {
+            article = articles[_i];
+            if ((_this.lastPubDate === null &amp;&amp; _this.lastPubTitle === null) || (_this.lastPubDate &lt;= article.pubDate / 1000 &amp;&amp; _this
+.lastPubTitle !== article.title)) {
+              _this.emit('new article', article);
+              _this.lastPubDate = article.pubDate / 1000;
+              _results.push(_this.lastPubTitle = article.title);
+            } else {
+              _results.push(void 0);
+            }
+          }
+          return _results;
+        });
+      };
+      return setInterval(function() {
+        return fetch(this.feedUrl);
+      }, _this.interval * 1000);
+    };
+  })(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
 
 
 
